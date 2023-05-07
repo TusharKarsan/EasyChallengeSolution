@@ -2,19 +2,21 @@
 Completed by [Tushar Karsan](https://www.linkedin.com/in/tusharkarsan/)
 on 08-May-2023.
 
+Using .Net 6.
+
 ## ConsoleAppStandard
 Standard Fizz Buzz for range `1` to `100`.
 
 ## ConsoleAppTwisted
 Uses these tokens:
 ```
-{
-    new Token( 5, "Fizz"),
-    new Token( 9, "Buzz"),
-    new Token(27, "Bar")
-}
+[
+    { multiple:  5, word: "Fizz" },
+    { multiple:  9, word: "Buzz" },
+    { multiple: 27, word: "Bar"  }
+]
 ```
-for range `-20` to `127`.
+for **Twisted Fizz Buzz** range `-20` to `127`.
 
 ## TwistedFizzBuzz
 This is the library.
