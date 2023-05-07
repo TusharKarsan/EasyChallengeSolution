@@ -15,9 +15,9 @@ namespace TwistedFizzBuzzTests
         {
             new object[] { SequenceGenerator.StandardTokens,  -1, "-1" },
             new object[] { SequenceGenerator.StandardTokens,  -2, "-2" },
-            new object[] { SequenceGenerator.StandardTokens,  3, "Buzz" },
-            new object[] { SequenceGenerator.StandardTokens,  5, "Fizz" },
-            new object[] { SequenceGenerator.StandardTokens, 15, "BuzzFizz" },
+            new object[] { SequenceGenerator.StandardTokens,  -3, "Buzz" },
+            new object[] { SequenceGenerator.StandardTokens,  -5, "Fizz" },
+            new object[] { SequenceGenerator.StandardTokens, -15, "BuzzFizz" },
         };
 
         public static string[] standardResult1to20 = 
