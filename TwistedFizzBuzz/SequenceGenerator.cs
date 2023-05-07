@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.Contracts;
+﻿using System.IO;
+using System.Text.Json;
 
 namespace TwistedFizzBuzz
 {
@@ -29,6 +30,28 @@ namespace TwistedFizzBuzz
                 return number.ToString();
             else
                 return result;
+        }
+
+        public static async Task<Token> GetTokenFromApi()
+        {
+            Token? token = null;
+
+            using (var client = new HttpClient())
+            {
+                var json = await client.GetStringAsync("https://rich-red-cocoon-veil.cyclic.app/random");
+                token = JsonSerializer.Deserialize<Token>(json);
+            }
+
+            if (token == null)
+                throw new Exception("Error retrieving token");
+            return token;
+        }
+
+        public static async Task<Tuple<Token, string>> GenerateSingleUsingApiToken(int number)
+        {
+            var token = await GetTokenFromApi();
+            var result = GenerateSingle(new Token[] { token }, number);
+            return new Tuple<Token, string>(token, result);
         }
 
         /// <summary>

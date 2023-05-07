@@ -5,10 +5,16 @@
         public int multiple { get; set; }
         public string word { get; set; }
 
-        public Token(int multiple, string work)
+        public Token()
+        {
+            this.multiple = 0;
+            this.word = "";
+        }
+
+        public Token(int multiple, string word)
         {
             this.multiple = multiple;
-            this.word = work;
+            this.word = word;
         }
     }
 }

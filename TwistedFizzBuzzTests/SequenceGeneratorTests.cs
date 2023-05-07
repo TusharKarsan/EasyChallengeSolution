@@ -139,5 +139,28 @@ namespace TwistedFizzBuzzTests
 
             resultList.Should().BeEquivalentTo(expect);
         }
+
+        [Fact]
+        public async Task GetTokenFromApi_ReturnsToken()
+        {
+            var token = await SequenceGenerator.GetTokenFromApi();
+
+            token.Should().NotBeNull();
+
+            token.word.Should().NotBeNullOrEmpty();
+            token.multiple.Should().NotBe(0);
+        }
+
+        [Fact]
+        public async Task GenerateSingleUsingApiToken_ReturnsResult()
+        {
+            var result = await SequenceGenerator.GenerateSingleUsingApiToken(50);
+
+            result.Should().NotBeNull();
+            result.Item1.Should().NotBeNull();
+            result.Item1.word.Should().NotBeNull();
+            result.Item1.multiple.Should().NotBe(0);
+            result.Item2.Should().NotBeNullOrEmpty();
+        }
     }
 }
