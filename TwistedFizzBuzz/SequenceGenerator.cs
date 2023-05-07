@@ -27,8 +27,7 @@ namespace TwistedFizzBuzz
 
             if (result.Length == 0)
                 return number.ToString();
-            else
-                return result;
+            return result;
         }
 
         public static async Task<Token> GetTokenFromApi()
