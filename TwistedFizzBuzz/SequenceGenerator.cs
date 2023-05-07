@@ -21,7 +21,7 @@ namespace TwistedFizzBuzz
 
             foreach (Token token in tokens)
             {
-                if (number % token.multiple == 0)
+                if (number != 0 && number % token.multiple == 0)
                     result += token.word;
             }
 
@@ -38,33 +38,33 @@ namespace TwistedFizzBuzz
         /// <param name="start">starting number</param>
         /// <param name="untilInclusive">inclusive finish number</param>
         /// <param name="callback so that a large dataset can be handled efficiently"></param>
-        public static void GenerateRange(Token[] tokens, int start, int untilInclusive, Action<string> callback)
+        public static void GenerateRange(Token[] tokens, int start, int untilInclusive, Action<int, string> callback)
         {
 
             if (start < untilInclusive)
             {
                 for (int i = start; i <= untilInclusive; i++)
                 {
-                    callback(GenerateSingle(tokens, i));
+                    callback(i, GenerateSingle(tokens, i));
                 }
             }
             else
             {
                 for (int i = start; i >= untilInclusive; i--)
                 {
-                    callback(GenerateSingle(tokens, i));
+                    callback(i, GenerateSingle(tokens, i));
                 }
             }
         }
 
-        public static void GenerateFromArray(Token[] tokens, int[] numberArray, Action<string> callback)
+        public static void GenerateFromArray(Token[] tokens, int[] numberArray, Action<int, string> callback)
         {
             if (numberArray == null || numberArray.Length == 0)
                 return;
 
             foreach(int item in numberArray)
             {
-                callback(GenerateSingle(tokens, item));
+                callback(item, GenerateSingle(tokens, item));
             }
         }
     }
