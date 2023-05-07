@@ -158,7 +158,7 @@ namespace TwistedFizzBuzzTests
 
             result.Should().NotBeNull();
             result.Item1.Should().NotBeNull();
-            result.Item1.word.Should().NotBeNull();
+            result.Item1.word.Should().NotBeNullOrEmpty();
             result.Item1.multiple.Should().NotBe(0);
             result.Item2.Should().NotBeNullOrEmpty();
         }
